@@ -12,7 +12,7 @@ This project visualizes recent earthquakes with:
 
 - Animated pulsing rings to show quake locations
 - Color-coded circles based on magnitude
-- Popups with location, time, depth, and magnitude
+- Popups with location and magnitude
 - Live data that updates automatically from USGS
 
 It's built with basic HTML, CSS, and JavaScript — no frameworks or build tools required.
@@ -31,7 +31,7 @@ You can either view the live demo above or run it locally:
 
 ## 📌 Notes
 
-- The map automatically scales and centers to a world view
+
 - Earthquakes with higher magnitude show in red, others in orange or green
 - Pulse effect adds a visual emphasis for active quakes
 
