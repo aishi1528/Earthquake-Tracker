@@ -1,12 +1,12 @@
-// Create the map
+
 const map = L.map('map').setView([20, 0], 2);
 
-// Add OpenStreetMap tiles
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 10,
 }).addTo(map);
 
-// Fetch Earthquake Data
+// Fetching Earthquake Data
 fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
   .then(res => res.json())
   .then(data => {
@@ -16,7 +16,7 @@ fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
       const place = eq.properties.place;
       const time = new Date(eq.properties.time).toLocaleString();
 
-      // Add pulsing ring effect
+      // Adding pulsing ring effect
       L.marker([lat, lon], {
         icon: L.divIcon({
           className: 'pulse-wrapper',
@@ -27,7 +27,7 @@ fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
         interactive: false
       }).addTo(map);
 
-      // Add circle marker
+      // Adding circle marker
       L.circleMarker([lat, lon], {
         radius: mag * 2,
         color: mag > 5 ? 'red' : mag > 3 ? 'orange' : 'green',
@@ -38,7 +38,7 @@ fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
                     Depth: ${depth} km<br>
                     Time: ${time}`);
 
-      // Add magnitude label
+      // Adding magnitude label
       L.marker([lat, lon], {
         icon: L.divIcon({
           className: 'mag-label',
